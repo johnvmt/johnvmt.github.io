@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.0.0/annyang.min.js"></script>
+    <style>
+        body {
+
+            font-size: 20pt;
+        }
+    </style>
     <script>
         function bodyWrite(write) {
             var body = document.getElementsByTagName("body")[0];
-            body.innerHTML += ("<br />" + write);
+            body.innerHTML = write;
         }
         if (annyang) {
             // Let's define our first command. First the text we expect, and then the function it should call
             var commands = {
-                'show tps report': function() {
-                    bodyWrite("TBS WRITE");
-                },
                 '*term': function(term) {
                     bodyWrite(term);
                 }
