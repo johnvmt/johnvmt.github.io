@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+	<script>
+		var video = document.createElement('video');
+		video.style.width = document.width + 'px';
+		video.style.height = document.height + 'px';
+		video.style['background-color'] = '#ff0000';
+		video.setAttribute('autoplay', '');
+		video.setAttribute('muted', '');
+		video.setAttribute('playsinline', '');
+
+		var facingMode = "user";
+		var constraints = {
+			audio: false,
+			video: {
+				facingMode: facingMode
+			}
+		}
+
+		navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
+			video.srcObject = stream;
+		});
+
+		document.body.appendChild(video);
+
+	</script>
+</body>
+</html>
